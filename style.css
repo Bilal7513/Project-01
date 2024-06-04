@@ -28,17 +28,17 @@ h2{
 .form{
     padding: 30px 40px;
 }
-.form_control{
+.form-control{
     margin-bottom: 10px;
     padding-bottom: 20px;
     position: relative;
 }
-.form_control label{
+.form-control label{
     color: #777;
     display: block;
     margin-bottom: 5px;
 }
-.form_control input{
+.form-control input{
     border: 2px solid #ecf0f1;
     border-radius: 5px;
     display: block;
@@ -46,24 +46,24 @@ h2{
     padding: 10px;
     font-size: 14px;
 }
-.form_control input:focus{
+.form-control input:focus{
     outline: 0;
     border-color: #777;
 }
-.form_control.success input{
+.form-control.success input{
     border-color: var(--success-color);
 }
-.form_control.error input{
+.form-control.error input{
     border-color: var(--error-color);
 }
-.form_control small{
+.form-control small{
     color: var(--error-color);
     position: absolute;
     bottom: 0;
     left: 0;
     visibility: hidden;
 }
-.form_control.error small{
+.form-control.error small{
     visibility: visible;
 }
 .form button{
