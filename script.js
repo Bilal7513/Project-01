@@ -43,6 +43,13 @@ function checkRequired(inputArray){
     })
 }
 
+// Function to check lemght of input field
+function checkLenght(input,min,max){
+    if(input.value.length < min){
+        showError(input,`${getFieldId(input)} needs to be ${min} characters`);
+    }
+}
+
 // Function to get id of the input field with proper case
 function getFieldId(input){
     return input.id.charAt(0).toUpperCase() + input.id.slice(1);
@@ -55,4 +62,7 @@ form.addEventListener('submit', function(e){
     e.preventDefault();
     
     checkRequired([username,email,password,password2]);
+    checkLenght(username,3,10);
+    checkLenght(password,6,30);
+    checkLenght(password2,6,30);
 })
