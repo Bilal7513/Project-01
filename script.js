@@ -25,6 +25,12 @@ function showSuccess(input){
     formControl.className = 'form-control success';
 }
 
+// Function to check is email is valid 
+function isValidEmail(email){
+    const re =  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+}
+
 //Event Listeners
 //Create event listener from submit button
 form.addEventListener('submit', function(e){
@@ -43,6 +49,9 @@ form.addEventListener('submit', function(e){
     // Check if email input is empty
     if(email.value === ''){
       showError(email, 'Email is required');
+    }
+    else if(!isValidEmail(email.value)){
+        showError(email,'Email is invalid');
     }
     else{
         showSuccess(email);
