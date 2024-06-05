@@ -6,9 +6,9 @@ const password = document.getElementById('password');
 const password2 = document.getElementById('password2');
 
 // Function to update class and message for error
-function showError(input, message){
+function showError(input, message) {
     // Get the parent element of the (.form-control)
-    const formControl = input.parentElelment;
+    const formControl = input.parentElement;
     // Replace the class - add error
     formControl.className = 'form-control error';
     // Get the small element for the error message
@@ -20,7 +20,7 @@ function showError(input, message){
 // Function to update class for success
 function showSuccess(input){
     // Get the parent element of the (.form-control)
-    const formControl = input.parentElelment;
+    const formControl = input.parentElement;
     // Replace the class - add success
     formControl.className = 'form-control success';
 }
