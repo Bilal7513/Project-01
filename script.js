@@ -26,9 +26,13 @@ function showSucess(input){
 }
 
 // Function to check is email is valid 
-function isValidEmail(email){
+function checkEmail(input){
     const re =  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
+        if(re.test(input.value.trim())){
+            showSucess(input);
+        } else{
+            showError(input, `This is not a valid email.`);
+        }
 }
 
 // Function to check if required field have data
@@ -36,7 +40,7 @@ function checkRequired(inputArray){
     inputArray.forEach(function(input){
         if(input.value === ''){
             console.log(input.id);
-            showError(input,`${getFieldId(input)} is required`);
+            showError(input,`${getFieldId(input)} is required.`);
         } else{
             showSucess(input);
         }
@@ -46,7 +50,20 @@ function checkRequired(inputArray){
 // Function to check lemght of input field
 function checkLenght(input,min,max){
     if(input.value.length < min){
-        showError(input,`${getFieldId(input)} needs to be ${min} characters`);
+        showError(input,`${getFieldId(input)} needs to be at least ${min} characters.`);
+    } else if (input.value.length > max) {
+        showError(input,`${getFieldId(input)} needs to be less than ${max} characters.`);
+    } else {
+        showSucess(input);
+    }
+}
+
+// Function to check if password and check password match
+function checkPasswordsMatch(input1, input2){
+    if(input1.value !== input2.value){
+        showError(input2, "Passwods don't match");
+    } else{
+        showSucess(input2);
     }
 }
 
@@ -64,5 +81,6 @@ form.addEventListener('submit', function(e){
     checkRequired([username,email,password,password2]);
     checkLenght(username,3,10);
     checkLenght(password,6,30);
-    checkLenght(password2,6,30);
+    checkEmail(email);
+    checkPasswordsMatch(password, password2);
 })
