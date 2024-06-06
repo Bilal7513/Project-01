@@ -39,7 +39,6 @@ function checkEmail(input){
 function checkRequired(inputArray){
     inputArray.forEach(function(input){
         if(input.value === ''){
-            console.log(input.id);
             showError(input,`${getFieldId(input)} is required.`);
         } else{
             showSucess(input);
