@@ -48,7 +48,7 @@ function checkRequired(inputArray){
 
 // Function to check lemght of input field
 function checkLenght(input,min,max){
-    if(input.value.length < min){
+    if(input.value.length < min && input.value.length < 1){
         showError(input,`${getFieldId(input)} needs to be at least ${min} characters.`);
     } else if (input.value.length > max) {
         showError(input,`${getFieldId(input)} needs to be less than ${max} characters.`);
@@ -76,8 +76,8 @@ form.addEventListener('submit', function(e){
     e.preventDefault();
     
     checkRequired([username,email,password,password2]);
-    checkLenght(username,3,10);
-    checkLenght(password,6,30);
+    checkLenght(username,8,20);
+    checkLenght(password,8,20);
     checkEmail(email);
     checkPasswordsMatch(password, password2);
 })
